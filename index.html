@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 冰島極光冒險 | Iceland Trip</title>
+    <!-- Tailwind CSS (用於快速樣式設計) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome (圖標) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ice: {
+                            100: '#e0f7fa',
+                            300: '#81d4fa',
+                            500: '#29b6f6',
+                            700: '#0288d1',
+                            900: '#01579b',
+                        },
+                        aurora: {
+                            green: '#39ff14',
+                            purple: '#8a2be2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)),
+                url('https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #38bdf8;
+            z-index: 0;
+        }
+
+        /* Mobile timeline fix */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
+
+        /* Custom Scrollbar for modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-ice-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span
+                        class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-ice-300 to-aurora-green">
+                        <i class="fa-solid fa-icicles mr-2 text-white"></i>ICELAND 2026
+                    </span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#itinerary"
+                            class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition">行程表</a>
+                        <a href="#logistics"
+                            class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition">交通
+                            (機票/租車)</a>
+                        <a href="#accommodation"
+                            class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition">住宿</a>
+                        <a href="#todo"
+                            class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition">待辦 & 裝備</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                        class="text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#itinerary" class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium">行程表</a>
+                <a href="#logistics" class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium">交通</a>
+                <a href="#accommodation"
+                    class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium">住宿</a>
+                <a href="#todo" class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium">待辦清單</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="animate-fade-in-up z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight">
+                冰島環島之旅
+            </h1>
+            <p class="text-xl md:text-2xl text-ice-100 mb-8 font-light">
+                2026.02.14 - 2026.02.28 <span class="mx-2">|</span> 15 天極地冒險
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto mb-12 glass-card p-6 rounded-xl">
+                <div>
+                    <span id="days" class="text-3xl md:text-4xl font-bold text-ice-300">00</span>
+                    <div class="text-xs text-gray-400 uppercase mt-1">天</div>
+                </div>
+                <div>
+                    <span id="hours" class="text-3xl md:text-4xl font-bold text-ice-300">00</span>
+                    <div class="text-xs text-gray-400 uppercase mt-1">時</div>
+                </div>
+                <div>
+                    <span id="minutes" class="text-3xl md:text-4xl font-bold text-ice-300">00</span>
+                    <div class="text-xs text-gray-400 uppercase mt-1">分</div>
+                </div>
+                <div>
+                    <span id="seconds" class="text-3xl md:text-4xl font-bold text-ice-300">00</span>
+                    <div class="text-xs text-gray-400 uppercase mt-1">秒</div>
+                </div>
+            </div>
+
+            <a href="#itinerary"
+                class="bg-ice-500 hover:bg-ice-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg hover:shadow-ice-500/50">
+                開始旅程 <i class="fa-solid fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="py-20 max-w-6xl mx-auto px-4">
+        <h2
+            class="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-ice-300 to-white">
+            <i class="fa-solid fa-route mr-3"></i>行程總覽
+        </h2>
+
+        <div class="relative">
+            <!-- Timeline Line -->
+            <div class="timeline-line"></div>
+
+            <div id="itinerary-container" class="space-y-12">
+                <!-- Javascript will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics Section (Flights & Car) -->
+    <section id="logistics" class="py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"><i
+                    class="fa-solid fa-plane-departure mr-3 text-ice-500"></i>交通安排</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Flights -->
+                <div class="glass-card p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <h3 class="text-xl font-bold mb-6 text-ice-300 border-b border-slate-600 pb-2">機票資訊</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-700 p-3 rounded-lg mr-4 text-center min-w-[60px]">
+                                <div class="font-bold text-lg">2/14</div>
+                                <div class="text-xs text-gray-400">去程</div>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg">中華航空 / 芬蘭航空</div>
+                                <p class="text-gray-400 text-sm">TPE 18:10 -> HKG -> HEL -> AMS (荷蘭轉機)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-slate-700 p-3 rounded-lg mr-4 text-center min-w-[60px]">
+                                <div class="font-bold text-lg">2/17</div>
+                                <div class="text-xs text-gray-400">冰島</div>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg">飛往雷克雅維克 (KEF)</div>
+                                <p class="text-gray-400 text-sm">從阿姆斯特丹飛往冰島</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-slate-700 p-3 rounded-lg mr-4 text-center min-w-[60px]">
+                                <div class="font-bold text-lg">2/28</div>
+                                <div class="text-xs text-gray-400">回程</div>
+                            </div>
+                            <div>
+                                <div class="font-bold text-lg">英國航空 / 泰國航空</div>
+                                <p class="text-gray-400 text-sm">KEF -> LHR -> DOH -> BKK -> TPE (3/1 抵達)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car Rental -->
+                <div
+                    class="glass-card p-6 rounded-xl shadow-lg hover:shadow-xl transition border-l-4 border-aurora-green">
+                    <h3 class="text-xl font-bold mb-6 text-aurora-green border-b border-slate-600 pb-2">租車詳情</h3>
+
+                    <div class="mb-4">
+                        <span class="bg-aurora-green text-black text-xs font-bold px-2 py-1 rounded">已預約</span>
+                        <h4 class="text-2xl font-bold mt-2">Lotus Car Rental</h4>
+                        <p class="text-lg text-gray-300">Suzuki Vitara 4x4 (Automatic)</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-300 mb-6">
+                        <div class="bg-slate-700/50 p-3 rounded">
+                            <i class="fa-solid fa-calendar-check mr-2 text-ice-500"></i>取車
+                            <div class="font-bold text-white mt-1">02/17 09:00</div>
+                            <div class="text-xs">凱夫拉維克機場</div>
+                        </div>
+                        <div class="bg-slate-700/50 p-3 rounded">
+                            <i class="fa-solid fa-calendar-xmark mr-2 text-ice-500"></i>還車
+                            <div class="font-bold text-white mt-1">02/27 09:00</div>
+                            <div class="text-xs">凱夫拉維克機場</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded border border-slate-700">
+                        <div class="flex justify-between items-center mb-1">
+                            <span>預約號碼</span>
+                            <span class="font-mono text-ice-300">ORDER #139076</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>總費用 (含保險)</span>
+                            <span class="font-bold">194,298 ISK</span>
+                        </div>
+                        <div class="text-right text-xs text-gray-500 mt-1">約 48,918 TWD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Grid -->
+    <section id="accommodation" class="py-20 max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12 text-center"><i class="fa-solid fa-bed mr-3 text-ice-500"></i>住宿列表</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="hotel-grid">
+            <!-- JS populated -->
+        </div>
+    </section>
+
+    <!-- Todo & Packing List -->
+    <section id="todo" class="py-20 bg-slate-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"><i
+                    class="fa-solid fa-clipboard-check mr-3 text-ice-500"></i>待辦 & 行李清單</h2>
+
+            <div class="bg-slate-900 rounded-xl shadow-xl overflow-hidden">
+                <div class="flex border-b border-slate-700">
+                    <button class="flex-1 py-4 text-center font-bold bg-slate-700 text-ice-300"
+                        onclick="showTab('packing')">行李裝備</button>
+                    <button class="flex-1 py-4 text-center font-bold hover:bg-slate-700 text-gray-400"
+                        onclick="showTab('food')">易培的魔法料理</button>
+                    <button class="flex-1 py-4 text-center font-bold hover:bg-slate-700 text-gray-400"
+                        onclick="showTab('admin')">行政待辦</button>
+                </div>
+
+                <div class="p-6 h-96 overflow-y-auto custom-scrollbar" id="list-content">
+                    <!-- Content injected via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-10 border-t border-slate-800 text-center">
+        <p class="text-gray-500 mb-2">2026 Iceland Trip Planning</p>
+        <p class="text-sm text-gray-600">Created based on 2026_02_14-02_28冰島🇮🇸.xlsx</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fa-solid fa-map"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fa-solid fa-cloud"></i></a>
+        </div>
+    </footer>
+
+    <!-- Details Modal -->
+    <div id="detail-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <!-- Background backdrop -->
+        <div class="fixed inset-0 bg-slate-900/90 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+
+        <!-- Modal panel -->
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-xl bg-slate-800 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-2xl border border-slate-700">
+
+                    <!-- Header -->
+                    <div
+                        class="bg-gradient-to-r from-slate-800 to-slate-900 px-6 py-4 border-b border-slate-700 flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-ice-300" id="modal-title">標題</h3>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-white transition">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="px-6 py-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                        <div class="prose prose-invert prose-sm max-w-none space-y-4 text-gray-300 leading-relaxed"
+                            id="modal-content">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="bg-slate-900 px-6 py-3 flex justify-end">
+                        <button type="button"
+                            class="inline-flex w-full justify-center rounded-md bg-ice-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-ice-600 sm:w-auto transition"
+                            onclick="closeModal()">
+                            關閉
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // --- DATA ---
+
+        const itinerary = [
+            {
+                date: "2/14 (六)",
+                title: "出發 & 轉機",
+                loc: "TPE -> AMS",
+                icon: "fa-plane",
+                desc: "18:10 華航起飛，經香港、赫爾辛基轉機",
+                details: `
+                    <p class="mb-2"><strong class="text-white">行程重點：</strong></p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li>傍晚 18:10 從台北出發，心情準備切換到度假模式！</li>
+                        <li>在香港與赫爾辛基轉機時，記得伸展筋骨，並確認登機口。</li>
+                    </ul>
+                    <div class="bg-slate-700/50 p-3 rounded border-l-4 border-yellow-500">
+                        <p class="text-xs text-yellow-500 font-bold mb-1">小提醒</p>
+                        <p class="text-sm">長途飛行建議穿著寬鬆衣物，隨身攜帶頸枕、保濕乳液與空瓶（過安檢後裝水）。</p>
+                    </div>
+                `
+            },
+            {
+                date: "2/15 (日)",
+                title: "抵達阿姆斯特丹",
+                loc: "Amsterdam",
+                icon: "fa-city",
+                desc: "市區觀光，入住 MEININGER Hotel",
+                details: `
+                    <p class="mb-2"><strong class="text-white">阿姆斯特丹亮點：</strong></p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-ice-300 font-bold">1. 運河區 (Canal Ring)</h4>
+                            <p>被列為世界遺產的運河帶，適合散步或搭乘運河遊船，欣賞獨特的山形牆建築。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-ice-300 font-bold">2. 水壩廣場 (Dam Square)</h4>
+                            <p>市中心的熱鬧地標，周圍有阿姆斯特丹王宮。</p>
+                        </div>
+                    </div>
+                    <p class="mt-4"><strong class="text-white">住宿：</strong> MEININGER Hotel Amsterdam Amstel (交通方便，就在車站旁)</p>
+                `
+            },
+            {
+                date: "2/16 (一)",
+                title: "阿姆斯特丹探索",
+                loc: "Amsterdam",
+                icon: "fa-bicycle",
+                desc: "梵谷博物館 (可考慮博物館卡)",
+                details: `
+                    <p class="mb-4">今天的主要目標是充滿藝術氣息的博物館區！</p>
+                    <div class="bg-slate-700/50 p-4 rounded mb-4">
+                        <h4 class="text-yellow-400 font-bold mb-2"><i class="fa-solid fa-palette mr-2"></i>梵谷博物館 (Van Gogh Museum)</h4>
+                        <p class="mb-2">收藏了世界上最多的梵谷作品，包括《向日葵》、《杏花盛開》和多幅《自畫像》。</p>
+                        <p class="text-sm text-gray-400">*建議事先預約時段，或確認是否已購買博物館卡。</p>
+                    </div>
+                    <p>若有時間，也可以逛逛附近的<strong>國立博物館 (Rijksmuseum)</strong> 或是在馮德爾公園 (Vondelpark) 騎腳踏車感受荷蘭日常。</p>
+                `
+            },
+            {
+                date: "2/17 (二)",
+                title: "飛往冰島 & 取車",
+                loc: "KEF -> Reykjavik",
+                icon: "fa-car",
+                desc: "09:00 取車 (Lotus Vitara 4x4)，前往雷克雅維克市區",
+                details: `
+                    <p class="mb-2"><strong class="text-white">歡迎來到冰與火之國！</strong></p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>取車注意：</strong> 檢查輪胎（是否有雪釘）、車身舊傷拍照存證、測試雨刷與大燈。</li>
+                        <li><strong>哈爾格林姆教堂 (Hallgrímskirkja)：</strong> 雷克雅維克的地標，外觀如玄武岩柱，可付費登塔頂俯瞰彩色屋頂。</li>
+                        <li><strong>太陽航海者 (Sun Voyager)：</strong> 位於海邊的維京船骨架雕塑，拍照超美。</li>
+                        <li><strong>Harpa 音樂廳：</strong> 蜂巢狀的彩色玻璃外觀，在陽光或夜景下都令人驚艷。</li>
+                    </ul>
+                    <p class="text-sm text-gray-400">晚餐建議在市區超市 (Bonus/Kronan) 採買食材，開啟自炊之旅。</p>
+                `
+            },
+            {
+                date: "2/18 (三)",
+                title: "金圈之旅 (Golden Circle)",
+                loc: "Selfoss",
+                icon: "fa-camera",
+                desc: "住宿: Fisherinn Guesthouse",
+                details: `
+                    <div class="space-y-4">
+                        <div class="border-l-2 border-ice-500 pl-3">
+                            <h4 class="text-ice-300 font-bold">辛格韋德利國家公園 (Þingvellir)</h4>
+                            <p>歐美板塊交界處，也是世界上最早的民主議會遺址。必走景點：板塊裂縫步道。</p>
+                        </div>
+                        <div class="border-l-2 border-ice-500 pl-3">
+                            <h4 class="text-ice-300 font-bold">間歇泉 (Geysir / Strokkur)</h4>
+                            <p>Strokkur 間歇泉每 6-10 分鐘噴發一次，水柱可達 20-30 公尺高，準備好相機錄影！</p>
+                        </div>
+                        <div class="border-l-2 border-ice-500 pl-3">
+                            <h4 class="text-ice-300 font-bold">黃金瀑布 (Gullfoss)</h4>
+                            <p>氣勢磅礴的雙層瀑布，冬季周圍會結冰，景色非常壯觀。</p>
+                        </div>
+                         <div class="border-l-2 border-ice-500 pl-3">
+                            <h4 class="text-ice-300 font-bold">火口湖 (Kerið)</h4>
+                            <p>紅色的火山岩壁環繞著深藍/結冰的湖水，形成強烈對比。</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                date: "2/19 (四)",
+                title: "南岸瀑布與黑沙灘",
+                loc: "Kálfafell",
+                icon: "fa-water",
+                desc: "住宿: Selfell Guesthouse",
+                details: `
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-slate-700/30 p-3 rounded">
+                            <h4 class="font-bold text-white">水濂洞瀑布 (Seljalandsfoss)</h4>
+                            <p class="text-sm">如果步道沒有結冰封閉，可以繞到瀑布後方（會濕身，請穿雨衣）。</p>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 rounded">
+                            <h4 class="font-bold text-white">彩虹瀑布 (Skógafoss)</h4>
+                            <p class="text-sm">白日夢冒險王拍攝地之一，水量巨大，晴天常有雙彩虹。可爬右側樓梯到頂端。</p>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 rounded">
+                            <h4 class="font-bold text-white">黑沙灘 (Reynisfjara)</h4>
+                            <p class="text-sm">玄武岩柱牆 (Basalt Columns) 必拍！<br><span class="text-red-400 font-bold">警告：</span>千萬不要背對大海，小心瘋狗浪 (Sneaker Waves)，請保持安全距離。</p>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 rounded">
+                            <h4 class="font-bold text-white">迪霍拉里 (Dyrhólaey)</h4>
+                            <p class="text-sm">海蝕洞拱門，可登高眺望綿延的黑沙灘海岸線。</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                date: "2/20 (五)",
+                title: "冰河湖冒險",
+                loc: "Höfn",
+                icon: "fa-icicles",
+                desc: "住宿: Milk Factory",
+                details: `
+                    <p class="mb-4 text-lg font-light text-ice-100">今天的行程是整趟旅程的重頭戲！</p>
+                    <div class="space-y-5">
+                        <div>
+                            <h4 class="text-xl font-bold text-ice-300">傑古沙龍冰河湖 (Jökulsárlón)</h4>
+                            <p>瓦特納冰川入海口，巨大的藍色冰山漂浮在湖面上，偶爾還能看到海豹探頭。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-ice-300">鑽石沙灘 (Diamond Beach)</h4>
+                            <p>就在冰河湖對面，被海浪打上岸的晶瑩冰塊散落在黑沙灘上，在陽光下像鑽石一樣閃耀。</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-400">晚上入住龍蝦小鎮 Höfn，有機會可以品嚐著名的海鰲蝦 (Langoustine)。</p>
+                `
+            },
+            {
+                date: "2/21 (六)",
+                title: "東峽灣漫遊",
+                loc: "Höfn",
+                icon: "fa-mountain",
+                desc: "續住 Milk Factory",
+                details: `
+                    <p>今天行程較為輕鬆，享受東部的寧靜。</p>
+                    <div class="bg-slate-700/50 p-4 rounded mt-2">
+                        <h4 class="text-ice-300 font-bold text-lg mb-2">蝙蝠山 / 天空之鏡 (Vestrahorn / Stokksnes)</h4>
+                        <p>位於 Höfn 附近的私房景點（需付門票費）。這裡有壯觀的鋸齒狀山峰，前方的黑沙灘在退潮且無風積水時，會完美倒映山影，是攝影師的最愛。</p>
+                        <p class="mt-2 text-sm text-gray-400">旁邊還有一個維京村落佈景 (Viking Village) 可以參觀。</p>
+                    </div>
+                `
+            },
+            {
+                date: "2/22 (日)",
+                title: "米湖溫泉與地熱區",
+                loc: "Mývatn",
+                icon: "fa-hot-tub-person",
+                desc: "住宿: Óli's Homestay",
+                details: `
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-ice-300 font-bold">米湖溫泉 (Mývatn Nature Baths)</h4>
+                            <p>號稱「北部的藍湖」，人潮較少，水質滑溜，可以一邊泡湯一邊看著雪景（運氣好晚上還能看極光！）。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-ice-300 font-bold">Hverir 地熱區</h4>
+                            <p>充滿硫磺味的地方，地面冒著煙，有著橘紅色的地表和滾燙的泥漿池，彷彿置身火星。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-ice-300 font-bold">黑色城堡 (Dimmuborgir)</h4>
+                            <p>巨大的熔岩迷宮，奇形怪狀的火山岩矗立，傳說是冰島精靈的住所。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-ice-300 font-bold">Grjótagjá 地洞溫泉</h4>
+                            <p>《權力遊戲》瓊恩雪諾泡溫泉的地方（水溫過高不能泡，只能參觀）。</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                date: "2/23 (一)",
+                title: "北部之都：阿克雷里",
+                loc: "Akureyri",
+                icon: "fa-snowflake",
+                desc: "住宿: Saga Apartments",
+                details: `
+                    <p class="mb-3">前往阿克雷里的路上，別忘了停靠：</p>
+                    <ul class="list-disc list-inside mb-4 pl-2">
+                        <li><strong>上帝瀑布 (Goðafoss)：</strong> 半環形的壯麗瀑布，歷史上冰島改信基督教時，將異教神像投入此處而得名。</li>
+                    </ul>
+                    <hr class="border-slate-600 my-4">
+                    <p class="mb-2"><strong class="text-white">阿克雷里 (Akureyri) 市區：</strong></p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>阿克雷里大教堂：</strong> 另一座玄武岩風格的教堂。</li>
+                        <li><strong>心形紅綠燈：</strong> 全世界最可愛的紅綠燈，記得抬頭找找看！</li>
+                        <li><strong>Hafnarstræti 購物街：</strong> 逛逛北部的紀念品店和咖啡廳。</li>
+                    </ul>
+                `
+            },
+            {
+                date: "2/24 (二)",
+                title: "西北部：犀牛石",
+                loc: "Armuli",
+                icon: "fa-wind",
+                desc: "住宿: Armuli",
+                details: `
+                    <p>今日拉車前往西部，途中亮點：</p>
+                    <div class="bg-slate-700/50 p-4 rounded mt-2">
+                        <h4 class="text-ice-300 font-bold text-lg mb-2">犀牛石 / 象形石 (Hvítserkur)</h4>
+                        <p>矗立在海中的巨大玄武岩，形狀像一隻正在喝水的犀牛或大象。退潮時可以走到岩石旁邊。</p>
+                        <p class="text-sm text-gray-400 mt-2">*冬季路況多變，若前往犀牛石的道路積雪過深，請量力而為。</p>
+                    </div>
+                    <p class="mt-4">晚上入住 Armuli 農場附近，享受無光害的極光狩獵環境。</p>
+                `
+            },
+            {
+                date: "2/25 (三)",
+                title: "斯奈山半島 (Snaefellsnes)",
+                loc: "Stykkishólmur",
+                icon: "fa-church",
+                desc: "教堂山 (Kirkjufell)，住宿: Hotel Stundarfridur",
+                details: `
+                    <p class="mb-2">斯奈山半島被稱為「冰島縮影」，景觀豐富。</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-camera text-ice-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong class="text-white">教堂山 (Kirkjufell)</strong>
+                                <p class="text-sm">全冰島被拍攝最多次的山，搭配前景的教堂山瀑布 (Kirkjufellsfoss)，是絕佳的明信片場景。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-water text-ice-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong class="text-white">阿納斯塔皮 (Arnarstapi)</strong>
+                                <p class="text-sm">美麗的海岸線步道，有著名的石橋海蝕拱門 (Gatklettur) 和巨人雕像。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-place-of-worship text-ice-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong class="text-white">布迪爾黑教堂 (Búðakirkja)</strong>
+                                <p class="text-sm">孤獨矗立在熔岩原上的黑色木造教堂，氣氛神秘。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                date: "2/26 (四)",
+                title: "返回首都 & 最後採買",
+                loc: "Reykjavik",
+                icon: "fa-building",
+                desc: "最後採買，住宿: Strand Hotel Apartments",
+                details: `
+                    <p>環島一圈回到雷克雅維克！</p>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><strong>Laugavegur 購物街：</strong> 購買羊毛衣 (Lopapeysa)、Puffin 玩偶、巧克力當伴手禮。</li>
+                        <li><strong>熱狗堡 (Bæjarins Beztu Pylsur)：</strong> 柯林頓總統吃過的熱狗堡，必吃！記得點 "Everything" (全加)。</li>
+                        <li><strong>藍湖 (Blue Lagoon)：</strong> (若行程有安排) 離開冰島前最後的奢華享受，乳白色的溫泉水非常夢幻。</li>
+                    </ul>
+                `
+            },
+            {
+                date: "2/27 (五)",
+                title: "還車 & 離境",
+                loc: "KEF Airport",
+                icon: "fa-plane-departure",
+                desc: "09:00 機場還車，準備搭機",
+                details: `
+                    <p class="mb-2"><strong class="text-white">離境流程：</strong></p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>前往 Lotus Car Rental 還車（加滿油、清理垃圾）。</li>
+                        <li>搭乘接駁車前往 KEF 機場。</li>
+                        <li>辦理退稅（若有購買達退稅門檻的商品，記得先在機場大廳退稅櫃台蓋章）。</li>
+                        <li>Check-in 登機，再見冰島！</li>
+                    </ol>
+                `
+            },
+            {
+                date: "2/28 (六)",
+                title: "漫長飛行",
+                loc: "Air",
+                icon: "fa-cloud",
+                desc: "LHR -> DOH -> BKK",
+                details: "<p>轉機馬拉松，整理照片、補眠，回味這趟神奇的旅程。</p>"
+            },
+            {
+                date: "3/01 (日)",
+                title: "抵達台灣",
+                loc: "Home",
+                icon: "fa-house",
+                desc: "平安回家",
+                details: "<p>歡迎回家！準備調時差與收心囉。</p>"
+            }
+        ];
+
+        const hotels = [
+            { name: "MEININGER Hotel Amsterdam Amstel", date: "2/14-16", city: "Amsterdam", addr: "Julianaplein 6, Netherlands", price: "€ 257.49", phone: "＋31 20 808 3102" },
+            { name: "Aurora Hotel", date: "2/16", city: "Keflavik Airport", addr: "Blikavöllur 2", price: "€ 189.2", phone: "＋354 595 1900" },
+            { name: "Skólavörðustígur Apartments", date: "2/17", city: "Reykjavik", addr: "Skólavörðustígur 21a", price: "NTD 4336", phone: "＋354 820 7536" },
+            { name: "Fisherinn Guesthouse", date: "2/18", city: "Selfoss", addr: "9 Hafnargata, 825 Stokkseyri", price: "NTD 4,271", phone: "＋354 854 4510" },
+            { name: "Selfell Guesthouse", date: "2/19", city: "Kálfafell", addr: "881 Kálfafell", price: "NTD 8,120", phone: "＋354 787 5599" },
+            { name: "Milk Factory", date: "2/20-21", city: "Höfn", addr: "Dalbraut 2, 780 Höfn", price: "NTD 11,889", phone: "＋354 478 8900" },
+            { name: "Óli's Homestay", date: "2/22", city: "Mývatn", addr: "Private House", price: "NTD 8,643", phone: "＋354 897 7858" },
+            { name: "Saga Apartments", date: "2/23", city: "Akureyri", addr: "Hafnarstræti 100", price: "123.75 EUR", phone: "＋354 893 0121" },
+            { name: "Armuli", date: "2/24", city: "Armuli", addr: "Sauðárkróksbraut 551", price: "NTD 8,173", phone: "＋354 864 2463" },
+            { name: "Hotel Stundarfridur", date: "2/25", city: "Stykkishólmur", addr: "Snæfellsnesvegur 340", price: "166 EUR", phone: "＋354 539 5402" },
+            { name: "Strand Hotel Apartments", date: "2/26", city: "Reykjavik", addr: "Strandgata 30", price: "NTD 4,977", phone: "" }
+        ];
+
+        const packingList = [
+            "護照 (確認效期)", "國際駕照", "台灣駕照", "信用卡 (PIN碼)", "申根保險證明",
+            "防風防水外套 (Gore-tex)", "中層保暖衣", "發熱衣", "羊毛襪 (5雙)", "防水褲", "毛帽/圍巾/手套", "登山鞋", "墨鏡 (雪地反光)",
+            "牙刷牙膏 (環保不提供)", "保溫杯", "燜燒罐", "行動電源", "車充", "歐洲轉接頭"
+        ];
+
+        const foodList = [
+            "鹽巴", "胡椒粉", "醬油", "調味粉", "堅魚粉", "海帶芽", "味噌", "泡麵 (重要!)", "味醂", "油", "米"
+        ];
+
+        const adminList = [
+            "訂旅館 (True)", "訂機票 (True)", "租車 (True)", "買保險", "換歐元/冰島克朗(少量)", "下載離線地圖"
+        ];
+
+        // --- FUNCTIONS ---
+
+        function renderItinerary() {
+            const container = document.getElementById('itinerary-container');
+            itinerary.forEach((item, index) => {
+                const isLeft = index % 2 === 0;
+                // Mobile: always left aligned visually, Desktop: alternating
+                const alignClass = isLeft ? 'md:flex-row' : 'md:flex-row-reverse';
+                const textClass = isLeft ? 'md:text-right' : 'md:text-left';
+                const marginClass = isLeft ? 'md:pr-12' : 'md:pl-12';
+
+                const html = `
+                    <div class="flex items-center ${alignClass} w-full relative">
+                        <div class="hidden md:block w-5/12"></div>
+                        
+                        <div class="z-10 bg-slate-800 border-4 border-slate-900 rounded-full w-12 h-12 flex items-center justify-center shadow-lg absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2 ml-[-6px] md:ml-0">
+                            <i class="fa-solid ${item.icon} text-ice-300 text-lg"></i>
+                        </div>
+
+                        <div class="w-full md:w-5/12 pl-12 md:pl-0 ${marginClass}">
+                            <div class="glass-card p-5 rounded-lg shadow-md hover:scale-105 transition duration-300 border-l-4 ${isLeft ? 'border-ice-500' : 'border-aurora-purple'}">
+                                <span class="text-sm font-bold text-ice-300 block mb-1">${item.date}</span>
+                                <h3 class="text-xl font-bold text-white mb-2">${item.title}</h3>
+                                <p class="text-gray-300 text-sm mb-2"><i class="fa-solid fa-location-dot mr-1"></i> ${item.loc}</p>
+                                <p class="text-gray-400 text-sm border-t border-gray-600 pt-2 mt-2">${item.desc}</p>
+                                
+                                ${item.details ? `
+                                <button onclick="openModal(${index})" class="mt-4 text-ice-300 hover:text-white text-sm font-semibold underline decoration-ice-500 underline-offset-4 transition flex items-center">
+                                    <i class="fa-solid fa-circle-info mr-2"></i> 查看詳細景點介紹
+                                </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        function renderHotels() {
+            const container = document.getElementById('hotel-grid');
+            hotels.forEach(hotel => {
+                const html = `
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700 hover:border-ice-500 transition group">
+                        <div class="h-32 bg-slate-700 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                            <!-- Placeholder Map Icon -->
+                            <div class="w-full h-full flex items-center justify-center text-slate-500 group-hover:scale-110 transition duration-700">
+                                <i class="fa-solid fa-map-location-dot text-6xl opacity-30"></i>
+                            </div>
+                            <span class="absolute bottom-2 left-3 z-20 bg-ice-700 text-white text-xs px-2 py-1 rounded">${hotel.city}</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white mb-1 leading-tight">${hotel.name}</h3>
+                            <p class="text-ice-300 text-sm mb-4"><i class="fa-regular fa-calendar mr-2"></i>${hotel.date}</p>
+                            
+                            <div class="space-y-2 text-sm text-gray-400">
+                                <p><i class="fa-solid fa-location-arrow w-5 text-center mr-1"></i>${hotel.addr}</p>
+                                <p><i class="fa-solid fa-phone w-5 text-center mr-1"></i>${hotel.phone || '無資料'}</p>
+                                <p class="text-aurora-green font-mono"><i class="fa-solid fa-tag w-5 text-center mr-1"></i>${hotel.price}</p>
+                            </div>
+                            
+                            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.name + ' ' + hotel.addr)}" target="_blank" class="block w-full text-center mt-4 bg-slate-700 hover:bg-slate-600 text-white py-2 rounded text-sm transition">
+                                <i class="fa-solid fa-map-pin mr-1"></i> 導航
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        function renderList(type, data, icon) {
+            return `
+                <ul class="space-y-3">
+                    ${data.map(item => `
+                        <li class="flex items-center text-gray-300 hover:text-white transition group cursor-pointer">
+                            <div class="w-5 h-5 rounded border border-gray-500 mr-3 flex items-center justify-center group-hover:border-ice-500">
+                                <i class="fa-solid fa-check text-ice-500 opacity-0 group-hover:opacity-100 text-xs check-icon"></i>
+                            </div>
+                            <span>${item}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+        }
+
+        function showTab(tabName) {
+            const container = document.getElementById('list-content');
+            const btns = document.querySelectorAll('#todo button');
+
+            // Reset buttons
+            btns.forEach(btn => {
+                btn.className = "flex-1 py-4 text-center font-bold hover:bg-slate-700 text-gray-400 transition";
+            });
+
+            // Active button style
+            if (tabName === 'packing') btns[0].className = "flex-1 py-4 text-center font-bold bg-slate-700 text-ice-300 border-b-2 border-ice-500";
+            if (tabName === 'food') btns[1].className = "flex-1 py-4 text-center font-bold bg-slate-700 text-aurora-green border-b-2 border-aurora-green";
+            if (tabName === 'admin') btns[2].className = "flex-1 py-4 text-center font-bold bg-slate-700 text-purple-400 border-b-2 border-purple-400";
+
+            // Render content
+            if (tabName === 'packing') container.innerHTML = renderList('packing', packingList);
+            if (tabName === 'food') container.innerHTML = renderList('food', foodList);
+            if (tabName === 'admin') container.innerHTML = renderList('admin', adminList);
+
+            // Simple click toggle logic for checkboxes
+            document.querySelectorAll('#list-content li').forEach(li => {
+                li.addEventListener('click', function () {
+                    const icon = this.querySelector('.check-icon');
+                    if (icon.classList.contains('opacity-0')) {
+                        icon.classList.remove('opacity-0');
+                        this.classList.add('line-through', 'text-gray-600');
+                    } else {
+                        icon.classList.add('opacity-0');
+                        this.classList.remove('line-through', 'text-gray-600');
+                    }
+                });
+            });
+        }
+
+        // --- MODAL LOGIC ---
+        function openModal(index) {
+            const item = itinerary[index];
+            document.getElementById('modal-title').innerText = item.title + ' - ' + item.date;
+            document.getElementById('modal-content').innerHTML = item.details || '暫無詳細資料';
+
+            const modal = document.getElementById('detail-modal');
+            modal.classList.remove('hidden');
+
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detail-modal');
+            modal.classList.add('hidden');
+
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        function startCountdown() {
+            const tripDate = new Date("February 14, 2026 18:10:00").getTime();
+
+            const timer = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = tripDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("days").innerHTML = "00";
+                    document.querySelector(".hero-bg h1").innerText = "旅程已開始！";
+                }
+            }, 1000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderItinerary();
+            renderHotels();
+            showTab('packing'); // Default tab
+            startCountdown();
+        });
+
+    </script>
+</body>
+
+</html>
