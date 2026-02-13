@@ -134,6 +134,9 @@
                         <a href="#souvenirs"
                             class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition text-aurora-green"><i
                                 class="fa-solid fa-gift mr-1"></i>必買</a>
+                        <a href="#guides"
+                            class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition text-ice-300"><i
+                                class="fa-solid fa-book-open mr-1"></i>攻略</a>
                         <a href="#todo"
                             class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition">清單</a>
                     </div>
@@ -156,6 +159,8 @@
                     class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium">住宿</a>
                 <a href="#souvenirs"
                     class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium text-aurora-green">必買清單</a>
+                <a href="#guides"
+                    class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium text-ice-300">攻略 & 須知</a>
                 <a href="#todo" class="block hover:bg-slate-700 px-3 py-2 rounded-md text-base font-medium">待辦清單</a>
             </div>
         </div>
@@ -373,6 +378,76 @@
             <!-- Souvenir List Container -->
             <div class="bg-slate-800 rounded-xl shadow-xl p-6 border border-slate-700" id="souvenir-container">
                 <!-- JS Populated List -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Guides & Info Section (New!) -->
+    <section id="guides" class="py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2
+                class="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-ice-300 to-aurora-green">
+                <i class="fa-solid fa-book-open mr-3 text-white"></i>旅遊攻略 & 實用知識
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Little Things -->
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 hover:border-ice-500 transition">
+                    <div class="text-ice-500 text-3xl mb-4"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">冰島冷知識</h3>
+                    <ul class="text-sm text-gray-400 space-y-2 list-disc list-inside">
+                        <li><strong>水可生飲：</strong> 水龍頭冷水是純淨冰川水，好喝！熱水則有硫磺味。</li>
+                        <li><strong>無小費文化：</strong> 服務費已含在價格內，不需額外給小費。</li>
+                        <li><strong>電子支付：</strong> 到處都可刷卡 (連廁所也是)，幾乎不需要現金。</li>
+                        <li><strong>洗澡禮儀：</strong> 進入公共泳池/溫泉前，必須<strong>全裸</strong>將身體洗淨。</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Road Challenges -->
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 hover:border-red-500 transition">
+                    <div class="text-red-400 text-3xl mb-4"><i class="fa-solid fa-car-burst"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">冬季自駕挑戰</h3>
+                    <ul class="text-sm text-gray-400 space-y-2 list-disc list-inside">
+                        <li><strong>車門防風：</strong> 冰島風速極大，開門務必<strong>雙手抓緊</strong>，以免吹反 (保險不賠)。</li>
+                        <li><strong>單線橋：</strong> 遇到 Einbreið brú 標誌，先到橋頭者先行，務必禮讓。</li>
+                        <li><strong>黑冰 (Black Ice)：</strong> 路面看起來是濕的，其實已結薄冰，極滑！轉彎減速。</li>
+                        <li><strong>盲峰 (Blindhæð)：</strong> 上坡頂端視線死角，靠右行駛。</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Winter Survival -->
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 hover:border-ice-300 transition">
+                    <div class="text-blue-300 text-3xl mb-4"><i class="fa-solid fa-person-skiing"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">冬季生存法則</h3>
+                    <ul class="text-sm text-gray-400 space-y-2 list-disc list-inside">
+                        <li><strong>日照短：</strong> 2月日照約 10:00-17:00，行程勿排太滿，天黑開車危險。</li>
+                        <li><strong>冰爪 (Crampons)：</strong> 瀑布步道常結冰，必備簡易冰爪套在鞋底。</li>
+                        <li><strong>洋蔥式穿搭：</strong> 發熱衣 + 保暖層 + <strong>防風防水外層</strong> (最重要)。</li>
+                        <li><strong>勿穿牛仔褲：</strong> 濕了極難乾且會失溫。</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Northern Lights -->
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 hover:border-aurora-green transition">
+                    <div class="text-aurora-green text-3xl mb-4"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">極光狩獵指南</h3>
+                    <ul class="text-sm text-gray-400 space-y-2 list-disc list-inside">
+                        <li><strong>必備條件：</strong> 天空無雲 (Clear Sky) + 無光害 + 極光指數 (KP) > 2。</li>
+                        <li><strong>實用網站：</strong> <a href="https://en.vedur.is/weather/forecasts/aurora/"
+                                target="_blank" class="text-ice-300 underline">Vedur.is</a> (官方天氣/極光預報)。</li>
+                        <li><strong>拍攝技巧：</strong> 腳架必備。長曝光 (2-10秒)、大光圈 (f2.8)、高 ISO。</li>
+                        <li><strong>耐心：</strong> 極光是自然現象，可遇不可求。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center text-xs text-gray-500">
+                <p>資料參考來源：
+                    <a href="https://unlock-iceland.com/" target="_blank"
+                        class="hover:text-ice-300 underline mr-2">Unlock Iceland</a>
+                    <a href="https://cn.guidetoiceland.is/about-iceland" target="_blank"
+                        class="hover:text-ice-300 underline">Guide to Iceland</a>
+                </p>
             </div>
         </div>
     </section>
