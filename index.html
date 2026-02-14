@@ -169,11 +169,12 @@
     <!-- Hero Section -->
     <header class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4 relative">
         <div class="animate-fade-in-up z-10">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight">
+            <h1 id="hero-title"
+                class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight">
                 冰島環島之旅
             </h1>
             <p class="text-xl md:text-2xl text-ice-100 mb-8 font-light">
-                2026.02.13 - 2026.03.01 <span class="mx-2">|</span> 17 天極地冒險
+                2026.02.13 - 2026.03.01 <span class="mx-2">|</span> <span id="trip-status">17 天極地冒險</span>
             </p>
 
             <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto mb-12 glass-card p-6 rounded-xl">
@@ -515,7 +516,62 @@
         </div>
     </footer>
 
-    <!-- Details Modal -->
+    <!-- Ticket Modal (New!) -->
+    <div id="ticket-modal" class="fixed inset-0 z-[110] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-slate-900/90 backdrop-blur-sm transition-opacity" onclick="closeTicketModal()">
+        </div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md">
+                    <!-- Ticket Header -->
+                    <div class="bg-ice-500 px-6 py-4 flex justify-between items-center text-white">
+                        <h3 class="text-xl font-bold"><i class="fa-solid fa-ticket mr-2"></i>E-TICKET</h3>
+                        <button onclick="closeTicketModal()" class="hover:text-slate-200"><i
+                                class="fa-solid fa-xmark text-xl"></i></button>
+                    </div>
+                    <!-- Ticket Body -->
+                    <div class="p-6 bg-white text-slate-800">
+                        <div class="text-center mb-6">
+                            <h2 id="ticket-museum" class="text-2xl font-bold text-slate-900 mb-1">Museum Name</h2>
+                            <p id="ticket-type" class="text-sm text-slate-500 uppercase tracking-wide">Adult Admission
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 mb-6">
+                            <div class="flex justify-between border-b border-slate-200 pb-2">
+                                <span class="text-slate-500">Date</span>
+                                <span id="ticket-date" class="font-bold">2026/02/15</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-200 pb-2">
+                                <span class="text-slate-500">Time</span>
+                                <span id="ticket-time" class="font-bold">09:00 - 10:00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-200 pb-2">
+                                <span class="text-slate-500">Visitor</span>
+                                <span id="ticket-name" class="font-bold">Name</span>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="bg-white p-2 inline-block border-2 border-slate-800 rounded mb-2">
+                                <img id="ticket-qr" src="" alt="QR Code" class="w-48 h-48 object-contain">
+                            </div>
+                            <p class="text-xs text-slate-400">Please show this QR code at the entrance</p>
+                        </div>
+                    </div>
+                    <!-- Ticket Footer -->
+                    <div class="bg-slate-100 px-6 py-3 flex justify-center border-t border-slate-200">
+                        <p class="text-xs text-slate-500">Ticket ID: <span id="ticket-id"
+                                class="font-mono">123456789</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal (Existing) -->
     <div id="detail-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
         aria-modal="true">
         <div class="fixed inset-0 bg-slate-900/90 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
@@ -559,6 +615,27 @@
             if (!query) query = text;
             return `<a href="${getMapLink(query)}" target="_blank" class="text-ice-300 hover:text-white underline decoration-ice-500/50 decoration-1 underline-offset-2 transition inline-flex items-center gap-1">${text}<i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i></a>`;
         }
+
+        const tickets = {
+            rijksmuseum: {
+                name: "Rijksmuseum",
+                type: "Adults",
+                date: "2026/02/15",
+                time: "09:00 - 10:00",
+                visitor: "Yukai Huang",
+                id: "3289015741172",
+                qrData: "3289015741172"
+            },
+            vangogh: {
+                name: "Van Gogh Museum",
+                type: "Adults",
+                date: "2026/02/16",
+                time: "10:00",
+                visitor: "YuKai Huang",
+                id: "770105832258412744",
+                qrData: "770105832258412744"
+            }
+        };
 
         const itinerary = [
             {
@@ -632,6 +709,7 @@
                 loc: "Museumplein",
                 hotel: "MEININGER Hotel Amsterdam Amstel",
                 icon: "fa-palette",
+                ticket: "rijksmuseum",
                 desc: "國家博物館、梵谷博物館、安妮之家",
                 details: `
                     <div class="space-y-6">
@@ -643,7 +721,7 @@
                                     <strong class="text-white">1. ${createMapLink('荷蘭國家博物館 (Rijksmuseum)', 'Rijksmuseum')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
                                         <span class="text-ice-500">★ 必看：</span> 林布蘭的《夜巡》、維梅爾的《倒牛奶的女僕》。
-                                        <br><span class="text-yellow-500">! 預約：</span> 建議先上網購票，避免現場排隊。
+                                        <br><span class="text-green-400">✔ 已購票：</span> 09:00 - 10:00 入場。
                                     </p>
                                 </div>
                                 <div>
@@ -669,6 +747,7 @@
                 loc: "Zaanse Schans",
                 hotel: "Aurora Hotel (機場旁)",
                 icon: "fa-wind",
+                ticket: "vangogh",
                 desc: "贊丹風車村，晚間飛冰島",
                 details: `
                     <div class="space-y-6">
@@ -681,6 +760,12 @@
                                     <p class="text-sm text-gray-400 mt-1">
                                         <span class="text-ice-500">★ 交通：</span> 從中央車站搭火車至 Zaandijk Zaanse Schans 站 (約17分)，再步行15分；或搭 Bus 391 直達。
                                         <br><span class="text-ice-500">★ 必看：</span> 運轉中的古老風車、${createMapLink('木屐工廠', 'Kooijman Souvenirs & Clogs Wooden Shoe Workshop')} (可免費參觀製作過程)。
+                                    </p>
+                                </div>
+                                <div>
+                                    <strong class="text-white">2. ${createMapLink('梵谷博物館', 'Van Gogh Museum')}</strong>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        <span class="text-green-400">✔ 已購票：</span> 10:00 入場。
                                     </p>
                                 </div>
                             </div>
@@ -734,7 +819,7 @@
                             <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
                                 <li><strong>驗車：</strong> 仔細檢查車身舊傷並錄影存證，確認輪胎是否為<strong>雪地胎 (Winter Tires)</strong>。</li>
                                 <li><strong>APP下載：</strong> 必備 <strong>Vedur.is</strong> (天氣)、<strong>Road.is</strong> (路況) 和 <strong>Parka</strong> (停車費)。</li>
-                                <li><strong>防風：</strong> 開車門時請務必<strong>雙手抓緊車門</strong>，冰島瞬間陣風可能將車門吹反 (保險不賠)。</li>
+                                <li><strong>防風：</strong> 開車門時請務必<strong>雙手抓緊車門</strong>，冰島瞬間陣風可能將車門吹壞 (保險不賠)。</li>
                                 <li><strong>超市採買：</strong> 建議前往 Bonus (小豬超市) 或 Krónan 採買，注意營業時間（通常 18:00-20:00 就關門）。</li>
                             </ul>
                         </div>
@@ -1167,6 +1252,12 @@
 
                 const locLink = createMapLink(item.loc, item.loc);
 
+                const ticketBtn = item.ticket ? `
+                    <button onclick="showTicket('${item.ticket}')" class="mt-2 w-full bg-aurora-green text-black font-bold py-2 rounded shadow hover:bg-green-400 transition flex items-center justify-center">
+                        <i class="fa-solid fa-ticket mr-2"></i> 查看電子門票
+                    </button>
+                ` : '';
+
                 const html = `
                     <div class="flex items-center ${alignClass} w-full relative">
                         <div class="hidden md:block w-5/12"></div>
@@ -1182,6 +1273,7 @@
                                 <p class="text-gray-300 text-sm mb-2"><i class="fa-solid fa-location-dot mr-1"></i> ${locLink}</p>
                                 <p class="text-gray-400 text-sm border-t border-gray-600 pt-2 mt-2">${item.desc}</p>
                                 
+                                ${ticketBtn}
                                 ${hotelHtml}
                                 
                                 ${item.details ? `
@@ -1315,26 +1407,66 @@
             document.body.style.overflow = 'auto';
         }
 
-        document.addEventListener('keydown', function (event) { if (event.key === "Escape") closeModal(); });
+        function showTicket(type) {
+            const ticket = tickets[type];
+            if (!ticket) return;
+
+            document.getElementById('ticket-museum').innerText = ticket.name;
+            document.getElementById('ticket-type').innerText = ticket.type + ' Admission';
+            document.getElementById('ticket-date').innerText = ticket.date;
+            document.getElementById('ticket-time').innerText = ticket.time;
+            document.getElementById('ticket-name').innerText = ticket.visitor;
+            document.getElementById('ticket-id').innerText = ticket.id;
+
+            // Generate QR Code using generic API
+            document.getElementById('ticket-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${ticket.qrData}`;
+
+            document.getElementById('ticket-modal').classList.remove('hidden');
+        }
+
+        function closeTicketModal() {
+            document.getElementById('ticket-modal').classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', function (event) { if (event.key === "Escape") { closeModal(); closeTicketModal(); } });
 
         function startCountdown() {
-            const tripDate = new Date("February 13, 2026 20:15:00").getTime();
+            const tripStartDate = new Date("February 13, 2026 20:15:00").getTime();
+            // Flight lands back in TPE around March 1st 12:05
+            const tripEndDate = new Date("March 1, 2026 12:05:00").getTime();
+
             const timer = setInterval(function () {
                 const now = new Date().getTime();
-                const distance = tripDate - now;
+                let distance;
+
+                const statusElement = document.getElementById("trip-status");
+                const titleElement = document.getElementById("hero-title");
+
+                if (now < tripStartDate) {
+                    // Countdown to start
+                    distance = tripStartDate - now;
+                    // No change needed for pre-trip state, keep default HTML
+                } else if (now >= tripStartDate && now < tripEndDate) {
+                    // Trip in progress (Count up)
+                    distance = now - tripStartDate;
+                    if (statusElement) statusElement.innerHTML = `<span class="text-aurora-green font-bold">旅程已經開始</span>`;
+                    if (titleElement) titleElement.innerText = "冰島冒險進行中";
+                } else {
+                    // Trip ended
+                    distance = now - tripEndDate;
+                    if (statusElement) statusElement.innerHTML = `旅程已圓滿結束`;
+                    if (titleElement) titleElement.innerText = "歡迎回家";
+                }
+
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
                 document.getElementById("days").innerHTML = days;
                 document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
                 document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
                 document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.getElementById("days").innerHTML = "00";
-                    document.querySelector(".hero-bg h1").innerText = "旅程已開始！";
-                }
             }, 1000);
         }
 
