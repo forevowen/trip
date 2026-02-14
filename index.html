@@ -687,9 +687,9 @@
                                 <div>
                                     <strong class="text-white">2. 美食清單</strong>
                                     <ul class="pl-6 list-[circle] space-y-2 mt-1 text-sm text-gray-400">
-                                        <li>${createMapLink('Manneken Pis Damrak', 'Manneken Pis Damrak')}：必吃厚切薯條，人潮眾多。</li>
-                                        <li>${createMapLink('Van Stapele Koekmakerij', 'Van Stapele Koekmakerij')}：超人氣巧克力餅乾，建議早點去排隊。</li>
-                                        <li>${createMapLink('Winkel 43', 'Winkel 43')}：在地人推薦的蘋果派。</li>
+                                        <li>${createMapLink('Manneken Pis Damrak', 'Manneken Pis Damrak')}：必吃厚切薯條。<i class="fa-regular fa-clock text-xs ml-1"></i> 10:00-24:00</li>
+                                        <li>${createMapLink('Van Stapele Koekmakerij', 'Van Stapele Koekmakerij')}：超人氣巧克力餅乾。<i class="fa-regular fa-clock text-xs ml-1"></i> 10:00-18:00</li>
+                                        <li>${createMapLink('Winkel 43', 'Winkel 43')}：在地人推薦的蘋果派。<i class="fa-regular fa-clock text-xs ml-1"></i> 08:00-01:00</li>
                                     </ul>
                                 </div>
                             </div>
@@ -705,12 +705,12 @@
             },
             {
                 date: "2/15 (日)",
-                title: "博物館日",
+                title: "荷蘭國家博物館 & 安妮之家",
                 loc: "Museumplein",
                 hotel: "MEININGER Hotel Amsterdam Amstel",
                 icon: "fa-palette",
                 ticket: "rijksmuseum",
-                desc: "國家博物館、梵谷博物館、安妮之家",
+                desc: "國家博物館、安妮之家",
                 details: `
                     <div class="space-y-6">
                         <div>
@@ -720,21 +720,16 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('荷蘭國家博物館 (Rijksmuseum)', 'Rijksmuseum')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-ice-500">★ 必看：</span> 林布蘭的《夜巡》、維梅爾的《倒牛奶的女僕》。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-17:00
+                                        <br><span class="text-ice-500">★ 必看：</span> 林布蘭的《夜巡》、維梅爾的《倒牛奶的女僕》。
                                         <br><span class="text-green-400">✔ 已購票：</span> 09:00 - 10:00 入場。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">2. ${createMapLink('梵谷博物館 (Van Gogh Museum)', 'Van Gogh Museum')}</strong>
+                                    <strong class="text-white">2. ${createMapLink('安妮之家 (Anne Frank House)', 'Anne Frank House')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-ice-500">★ 必看：</span> 《向日葵》、《杏花盛開》、《吃馬鈴薯的人》。
-                                        <br><span class="text-red-400">!!! 重要：</span> 必須<strong>提前 2-4 週</strong>上網預約時段，現場絕對買不到票。
-                                    </p>
-                                </div>
-                                <div>
-                                    <strong class="text-white">3. ${createMapLink('安妮之家 (Anne Frank House)', 'Anne Frank House')}</strong>
-                                    <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-red-400">!!! 重要：</span> 門票於<strong>6週前</strong>開放預約，非常搶手。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-22:00
+                                        <br><span class="text-red-400">!!! 重要：</span> 門票於<strong>6週前</strong>開放預約，非常搶手。
                                     </p>
                                 </div>
                             </div>
@@ -743,12 +738,12 @@
             },
             {
                 date: "2/16 (一)",
-                title: "風車村 & 飛往冰島",
+                title: "梵谷博物館 & 風車村",
                 loc: "Zaanse Schans",
                 hotel: "Aurora Hotel (機場旁)",
                 icon: "fa-wind",
                 ticket: "vangogh",
-                desc: "贊丹風車村，晚間飛冰島",
+                desc: "10:00 梵谷博物館、贊丹風車村，晚間飛冰島",
                 details: `
                     <div class="space-y-6">
                         <div>
@@ -756,16 +751,19 @@
                             <img src="https://images.unsplash.com/photo-1524009060049-7d05777a83d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Zaanse Schans" class="w-full h-48 object-cover rounded-lg mb-4 img-loading">
                             <div class="space-y-4">
                                 <div>
-                                    <strong class="text-white">1. ${createMapLink('贊丹風車村 (Zaanse Schans)', 'Zaanse Schans')}</strong>
+                                    <strong class="text-white">1. ${createMapLink('梵谷博物館 (Van Gogh Museum)', 'Van Gogh Museum')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-ice-500">★ 交通：</span> 從中央車站搭火車至 Zaandijk Zaanse Schans 站 (約17分)，再步行15分；或搭 Bus 391 直達。
-                                        <br><span class="text-ice-500">★ 必看：</span> 運轉中的古老風車、${createMapLink('木屐工廠', 'Kooijman Souvenirs & Clogs Wooden Shoe Workshop')} (可免費參觀製作過程)。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-18:00
+                                        <br><span class="text-green-400">✔ 已購票：</span> 10:00 入場。
+                                        <br><span class="text-ice-500">★ 必看：</span> 《向日葵》、《杏花盛開》、《吃馬鈴薯的人》。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">2. ${createMapLink('梵谷博物館', 'Van Gogh Museum')}</strong>
+                                    <strong class="text-white">2. ${createMapLink('贊丹風車村 (Zaanse Schans)', 'Zaanse Schans')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-green-400">✔ 已購票：</span> 10:00 入場。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-17:00 (商店)
+                                        <br><span class="text-ice-500">★ 交通：</span> 從中央車站搭火車至 Zaandijk Zaanse Schans 站 (約17分)，再步行15分；或搭 Bus 391 直達。
+                                        <br><span class="text-ice-500">★ 必看：</span> 運轉中的古老風車、${createMapLink('木屐工廠', 'Kooijman Souvenirs & Clogs Wooden Shoe Workshop')} (08:30-17:00)。
                                     </p>
                                 </div>
                             </div>
@@ -794,7 +792,8 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('雷克雅維克大教堂 (Hallgrímskirkja)', 'Hallgrímskirkja')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        雷克雅維克地標，設計靈感來自玄武岩柱。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-17:00 (塔樓)
+                                        <br>雷克雅維克地標，設計靈感來自玄武岩柱。
                                         <br><span class="text-ice-500">★ 必看：</span> 登上塔頂 (需付費) 俯瞰市區彩色屋頂。
                                         <br><span class="text-yellow-500">! 停車：</span> 教堂後方有停車場 (P2)，需用 Parka App 付費。
                                     </p>
@@ -802,15 +801,24 @@
                                 <div>
                                     <strong class="text-white">2. ${createMapLink('太陽航海者 (Sun Voyager)', 'Sun Voyager')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        位於海邊的維京船骨架雕塑，背景是 Esja 雪山。
-                                        <br><span class="text-ice-500">★ 拍攝：</span> 夕陽或日出時分光線最美。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>位於海邊的維京船骨架雕塑，背景是 Esja 雪山。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">3. ${createMapLink('Harpa 音樂廳', 'Harpa Concert Hall')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        蜂巢狀玻璃外觀，光影變化迷人。內部可免費參觀。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 10:00-18:00
+                                        <br>蜂巢狀玻璃外觀，光影變化迷人。內部可免費參觀。
                                     </p>
+                                </div>
+                                <div>
+                                    <strong class="text-white">4. 美食與採買</strong>
+                                    <ul class="pl-6 list-[circle] space-y-1 mt-1 text-sm text-gray-400">
+                                        <li>${createMapLink('Bæjarins Beztu Pylsur 熱狗堡', 'Bæjarins Beztu Pylsur')}：<i class="fa-regular fa-clock text-xs ml-1"></i> 10:00-01:00</li>
+                                        <li>${createMapLink('Svarta Kaffið 麵包湯', 'Svarta Kaffið')}：<i class="fa-regular fa-clock text-xs ml-1"></i> 11:30-22:00</li>
+                                        <li>${createMapLink('Bonus (小豬超市)', 'Bonus Supermarket')}：<i class="fa-regular fa-clock text-xs ml-1"></i> 10:00-20:00 (週五至19:30)</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -820,7 +828,6 @@
                                 <li><strong>驗車：</strong> 仔細檢查車身舊傷並錄影存證，確認輪胎是否為<strong>雪地胎 (Winter Tires)</strong>。</li>
                                 <li><strong>APP下載：</strong> 必備 <strong>Vedur.is</strong> (天氣)、<strong>Road.is</strong> (路況) 和 <strong>Parka</strong> (停車費)。</li>
                                 <li><strong>防風：</strong> 開車門時請務必<strong>雙手抓緊車門</strong>，冰島瞬間陣風可能將車門吹壞 (保險不賠)。</li>
-                                <li><strong>超市採買：</strong> 建議前往 Bonus (小豬超市) 或 Krónan 採買，注意營業時間（通常 18:00-20:00 就關門）。</li>
                             </ul>
                         </div>
                     </div>`
@@ -840,7 +847,8 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('辛格韋德利國家公園 (Thingvellir)', 'Thingvellir National Park')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        歐美板塊交界處，冰島議會舊址。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H (遊客中心 09:00-18:00)
+                                        <br>歐美板塊交界處，冰島議會舊址。
                                         <br><span class="text-ice-500">★ 必看：</span> Lögberg (法律石)、Almannagjá 峽谷。
                                         <br><span class="text-yellow-500">! 停車：</span> 建議停 P1 (遊客中心旁) 走到觀景台最順路。需付費。
                                     </p>
@@ -848,15 +856,23 @@
                                 <div>
                                     <strong class="text-white">2. ${createMapLink('Geysir 間歇泉', 'Geysir')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-ice-500">★ 必看：</span> Strokkur 間歇泉每 6-10 分鐘噴發一次，水柱可達 20 公尺。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br><span class="text-ice-500">★ 必看：</span> Strokkur 間歇泉每 6-10 分鐘噴發一次，水柱可達 20 公尺。
                                         <br><span class="text-yellow-500">! 注意：</span> 請站在上風處，以免被硫磺熱水淋濕。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">3. ${createMapLink('Gullfoss 黃金瀑布', 'Gullfoss Falls')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        雙層斷層瀑布，冬季周圍結冰非常壯觀。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>雙層斷層瀑布，冬季周圍結冰非常壯觀。
                                         <br><span class="text-yellow-500">! 注意：</span> 步道可能非常濕滑，建議穿著<strong>冰爪 (Crampons)</strong>。
+                                    </p>
+                                </div>
+                                <div>
+                                    <strong class="text-white">4. ${createMapLink('Skálholt 教堂', 'Skálholt Cathedral')}</strong>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-16:00
                                     </p>
                                 </div>
                             </div>
@@ -865,7 +881,6 @@
                             <h4 class="text-yellow-500 font-bold mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>注意事項</h4>
                             <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
                                 <li>辛格韋德利國家公園停車需付費，請使用現場機器或 Parka App 繳費。</li>
-                                <li>若時間允許，可順道拜訪附近的 Kerið 火口湖 (需門票)。</li>
                             </ul>
                         </div>
                     </div>`
@@ -885,21 +900,30 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('飛機殘骸 (Plane Wreck)', 'Solheimasandur Plane Wreck')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        美軍 DC-3 飛機殘骸。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H (接駁車約 10:00-17:00)
+                                        <br>美軍 DC-3 飛機殘骸。
                                         <br><span class="text-yellow-500">! 交通：</span> 停車場走到殘骸單程約 4 公里 (約 1 小時)，冬季風大非常冷。建議搭乘接駁巴士 (Shuttle Bus) 節省時間體力。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">2. ${createMapLink('黑沙灘 (Reynisfjara)', 'Reynisfjara Beach')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        <span class="text-ice-500">★ 必看：</span> 玄武岩柱牆 (Basalt Columns) 與海蝕洞 (Hálsanefshellir)。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br><span class="text-ice-500">★ 必看：</span> 玄武岩柱牆 (Basalt Columns) 與海蝕洞 (Hálsanefshellir)。
                                         <br><span class="text-red-400">!!! 警告：</span> 此處有致命的「瘋狗浪 (Sneaker Waves)」，千萬不要背對大海，並與海水保持絕對安全距離。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">3. ${createMapLink('羽毛河峽谷 (Fjaðrárgljúfur)', 'Fjaðrárgljúfur')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        Justin Bieber MV 拍攝地。冬季若積雪過深可能封閉，請依現場公告為準。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H (視路況)
+                                        <br>Justin Bieber MV 拍攝地。冬季若積雪過深可能封閉，請依現場公告為準。
+                                    </p>
+                                </div>
+                                <div>
+                                    <strong class="text-white">4. ${createMapLink('彩虹瀑布 (Skógafoss)', 'Skógafoss')}</strong>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
                                     </p>
                                 </div>
                             </div>
@@ -919,23 +943,31 @@
                             <h4 class="text-ice-300 font-bold mb-2"><i class="fa-solid fa-map-pin mr-2"></i>景點詳細攻略</h4>
                             <div class="space-y-4">
                                 <div>
-                                    <strong class="text-white">1. 冰川健行 & 藍冰洞</strong>
+                                    <strong class="text-white">1. 冰川健行</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        深入瓦特納冰川的奇幻體驗。
-                                        <br><span class="text-yellow-500">! 集合：</span> 請務必提早 30 分鐘抵達集合點 (${createMapLink('Skaftafell Terminal', 'Skaftafell Terminal')} 或 ${createMapLink('Jökulsárlón', 'Jökulsárlón')})，遲到不候。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:45 集合
+                                        <br><span class="text-yellow-500">! 集合：</span> 請務必提早 30 分鐘抵達集合點 (${createMapLink('Skaftafell Terminal', 'Skaftafell Terminal')})。
                                         <br><span class="text-ice-500">★ 裝備：</span> 必須穿著<strong>高筒硬底登山鞋</strong> (方便扣冰爪)。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">2. ${createMapLink('傑古沙龍冰河湖 (Jökulsárlón)', 'Jökulsárlón')}</strong>
+                                    <strong class="text-white">2. 藍冰洞</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        巨大藍色浮冰漂浮，偶爾可見海豹。冬季無船班，僅能在岸邊欣賞。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 12:30 集合
+                                        <br><span class="text-yellow-500">! 集合：</span> ${createMapLink('Jökulsárlón 冰河湖', 'Jökulsárlón')}。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">3. ${createMapLink('鑽石沙灘 (Diamond Beach)', 'Diamond Beach Iceland')}</strong>
+                                    <strong class="text-white">3. ${createMapLink('傑古沙龍冰河湖 (Jökulsárlón)', 'Jökulsárlón')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        就在冰河湖對面出海口，黑色沙灘上散落著晶瑩剔透的巨大冰塊，像鑽石一樣。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>巨大藍色浮冰漂浮，偶爾可見海豹。冬季無船班，僅能在岸邊欣賞。
+                                    </p>
+                                </div>
+                                <div>
+                                    <strong class="text-white">4. ${createMapLink('鑽石沙灘 (Diamond Beach)', 'Diamond Beach Iceland')}</strong>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
                                     </p>
                                 </div>
                             </div>
@@ -957,15 +989,17 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('Vestrahorn 蝙蝠山 (Stokksnes)', 'Vestrahorn')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        攝影師的最愛。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 09:00-19:00 (Viking Cafe)
+                                        <br>攝影師的最愛。
                                         <br><span class="text-ice-500">★ 拍攝：</span> 當海水退潮且無風時，黑沙灘上的積水會形成完美的「天空之鏡」倒影。
-                                        <br><span class="text-yellow-500">! 費用：</span> 為私人土地，需在 Viking Cafe 購買門票，可順便參觀旁邊的維京村落佈景。
+                                        <br><span class="text-yellow-500">! 費用：</span> 為私人土地，需在 Viking Cafe 購買門票。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">2. ${createMapLink('Gufu Waterfall', 'Gufufoss')}</strong>
+                                    <strong class="text-white">2. ${createMapLink('Pakkhús Restaurant', 'Pakkhús Restaurant')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        位於 Seyðisfjörður 小鎮附近的路邊瀑布，水量豐沛，造型優美。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 12:00-21:00
+                                        <br>Höfn 著名的龍蝦餐廳，推薦品嚐冰島海鰲蝦 (Langoustine)。
                                     </p>
                                 </div>
                             </div>
@@ -987,21 +1021,23 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('Hverir 地熱區', 'Hverir')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        橘紅地表、噴氣孔、泥漿池。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>橘紅地表、噴氣孔、泥漿池。
                                         <br><span class="text-yellow-500">! 注意：</span> 硫磺味極重，鞋子容易沾黏泥巴，請走在標示的步道上以免燙傷。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">2. ${createMapLink('Grjótagjá 地洞溫泉', 'Grjótagjá')}</strong>
+                                    <strong class="text-white">2. ${createMapLink('米湖溫泉 (Mývatn Nature Baths)', 'Mývatn Nature Baths')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        《權力遊戲》瓊恩雪諾泡溫泉處。水溫過高不可下水，僅供參觀。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 12:00-22:00
+                                        <br>號稱「北部藍湖」。
+                                        <br><span class="text-yellow-500">! 禮儀：</span> 入池前必須在淋浴間<strong>全裸沖洗</strong>身體。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">3. ${createMapLink('米湖溫泉 (Mývatn Nature Baths)', 'Mývatn Nature Baths')}</strong>
+                                    <strong class="text-white">3. ${createMapLink('Grjótagjá 地洞溫泉', 'Grjótagjá')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        號稱「北部藍湖」。
-                                        <br><span class="text-yellow-500">! 禮儀：</span> 入池前必須在淋浴間<strong>全裸沖洗</strong>身體。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H (僅參觀)
                                     </p>
                                 </div>
                             </div>
@@ -1023,21 +1059,24 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('上帝瀑布 (Goðafoss)', 'Goðafoss Waterfall')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        半環形瀑布。左右兩岸皆有停車場，冬季建議停在西岸 (West Bank) 視野較好且步道較易行。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>半環形瀑布。左右兩岸皆有停車場，冬季建議停在西岸 (West Bank) 視野較好且步道較易行。
                                     </p>
                                 </div>
                                 <div>
-                                    <strong class="text-white">2. 阿克雷里市區 (Akureyri)</strong>
+                                    <strong class="text-white">2. ${createMapLink('阿克雷里大教堂 (Akureyri Church)', 'Akureyri Church')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        冰島第二大城。
-                                        <br><span class="text-ice-500">★ 必看：</span> ${createMapLink('阿克雷里大教堂', 'Akureyri Church')}、尋找著名的${createMapLink('心形紅綠燈', 'Akureyri Heart Traffic Lights')}。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 10:00-16:00
+                                    </p>
+                                </div>
+                                <div>
+                                    <strong class="text-white">3. ${createMapLink('心形紅綠燈', 'Akureyri Heart Traffic Lights')}</strong>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>阿克雷里特有，象徵愛與希望，記得抬頭找找。
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bg-yellow-900/20 border border-yellow-700/50 p-4 rounded-lg">
-                            <h4 class="text-yellow-500 font-bold mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>注意事項</h4>
-                            <p class="text-sm text-gray-300">冬季北部積雪通常較厚，上帝瀑布周邊步道可能結冰，行走請務必小心，建議穿著簡易冰爪。</p>
                         </div>
                     </div>`
             },
@@ -1056,14 +1095,16 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('犀牛石 (Hvítserkur)', 'Hvítserkur')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        矗立海中的巨型玄武岩。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>矗立海中的巨型玄武岩。
                                         <br><span class="text-yellow-500">! 路況：</span> 通往此處的 711 號公路冬季路況極差（常有坑洞或積雪），若車輛非四輪驅動或駕駛經驗不足，建議斟酌前往。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">2. ${createMapLink('Ingjaldshóll Church', 'Ingjaldshólskirkja')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        位於斯奈山半島，通往教堂的筆直道路配上背景雪山，是絕佳的構圖畫面。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H (外部)
+                                        <br>位於斯奈山半島，通往教堂的筆直道路配上背景雪山，是絕佳的構圖畫面。
                                     </p>
                                 </div>
                             </div>
@@ -1089,7 +1130,8 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('教堂山 (Kirkjufell)', 'Kirkjufell')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        冰島地標。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>冰島地標。
                                         <br><span class="text-ice-500">★ 拍攝：</span> 最佳機位在對面的 Kirkjufellsfoss 瀑布旁，以前景瀑布帶出後方山景。
                                         <br><span class="text-yellow-500">! 費用：</span> 停車場需付費。
                                     </p>
@@ -1097,13 +1139,15 @@
                                 <div>
                                     <strong class="text-white">2. ${createMapLink('布迪爾黑教堂 (Búðakirkja)', 'Búðakirkja')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        孤獨矗立在熔岩原上的黑色木造教堂，極簡風格，非常適合拍攝人像。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H (外部)
+                                        <br>孤獨矗立在熔岩原上的黑色木造教堂，極簡風格，非常適合拍攝人像。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">3. ${createMapLink('阿納斯塔皮 (Arnarstapi)', 'Arnarstapi')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        海蝕洞景觀，必看 Gatklettur 石拱橋與巨人雕像。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>海蝕洞景觀，必看 Gatklettur 石拱橋與巨人雕像。
                                     </p>
                                 </div>
                             </div>
@@ -1125,17 +1169,23 @@
                                 <div>
                                     <strong class="text-white">1. ${createMapLink('Ytri Tunga 海豹沙灘', 'Ytri Tunga Beach')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        這裡有機會看到野生海豹在礁石上曬太陽。請保持安靜與距離，不要驚擾牠們。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 24H
+                                        <br>這裡有機會看到野生海豹在礁石上曬太陽。請保持安靜與距離，不要驚擾牠們。
                                     </p>
                                 </div>
                                 <div>
                                     <strong class="text-white">2. ${createMapLink('Sky Lagoon', 'Sky Lagoon Iceland')}</strong>
                                     <p class="text-sm text-gray-400 mt-1">
-                                        近年新開的無邊際地熱溫泉，著名的 "7-Step Ritual" (七步儀式) 包含桑拿、去角質等。
+                                        <i class="fa-regular fa-clock text-xs mr-1"></i> 11:00-22:00
+                                        <br>近年新開的無邊際地熱溫泉，著名的 "7-Step Ritual" (七步儀式) 包含桑拿、去角質等。
                                         <br><span class="text-yellow-500">! 提醒：</span> 溫泉水含矽，易讓頭髮打結，建議塗抹大量護髮素且不完全沖洗，或將頭髮綁起不碰水。
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="bg-yellow-900/20 border border-yellow-700/50 p-4 rounded-lg">
+                            <h4 class="text-yellow-500 font-bold mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>注意事項</h4>
+                            <p class="text-sm text-gray-300">回到市區後，可進行最後採買。若有要在機場退稅的商品，建議先整理好退稅單 (Tax Refund)，填寫完整資料。</p>
                         </div>
                     </div>`
             },
@@ -1151,7 +1201,7 @@
                         <div>
                             <h4 class="text-ice-300 font-bold mb-2"><i class="fa-solid fa-check-to-slot mr-2"></i>離境流程</h4>
                             <ol class="list-decimal list-inside space-y-2 text-sm text-gray-300">
-                                <li><strong>09:00 還車：</strong> 加滿油、清理車內垃圾。確認歸還鑰匙與檢查車況。</li>
+                                <li><strong>09:00 還車：</strong> 加滿油、清理車內垃圾。確認歸還鑰匙與檢查車況。 (租車公司通常 05:00 開始營業)</li>
                                 <li><strong>退稅：</strong> 在機場大廳退稅櫃台蓋章（需出示護照、登機證、退稅單，商品偶爾會被抽查）。</li>
                                 <li><strong>11:50 起飛：</strong> QR9703 KEF -> LHR。</li>
                             </ol>
